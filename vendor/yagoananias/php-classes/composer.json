@@ -1,0 +1,22 @@
+{
+    "name": "yagoananias/php-classes",
+    "minimum-stability": "dev",
+    "type": "library",
+    "description": "Classes PHP",
+    "homepage": "",
+    "authors": [
+        {
+            "name": "Yago Ananias",
+            "email": "yago_souza92@yahoo.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "rain/raintpl":"3.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "": "src"
+        }
+    }
+}
