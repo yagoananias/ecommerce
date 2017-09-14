@@ -2,18 +2,19 @@
 
 require_once("vendor/autoload.php");
 
-$app = new \Slim\Slim(); //Chama uma nova aplicação do Slim
+use \Slim\Slim;
+use \yagoananias\Page;
+
+$app = new Slim(); //Chama uma nova aplicação do Slim
 
 $app->config('debug', true); //Mostra todos os erros que ocorrem
 
 //Criação de rota com barra /
 $app->get('/', function() {
-    
-	$sql = new yagoananias\DB\Sql();
 
-	$results = $sql->select("SELECT * FROM tb_users");
+	$page = new Page();
 
-	echo json_encode($results);
+	$page->setTpl("index");
 
 });
 
