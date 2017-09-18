@@ -60,6 +60,28 @@ class User extends Model {
 
 		$_SESSION[User::SESSION] = NULL;
 	}
+
+	public static function listAll() {
+
+		$sql = new Sql();
+
+		return $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) ORDER BY b.desperson");
+	}
+
+	public function get($iduser) {
+
+		$sql = new Sql();
+
+		$results = $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) WHERE a.iduser = :iduser", 
+		 array(
+			":iduser"=>$iduser
+		));
+
+		$data = $results[0];
+		
+		$data['desperson'] = utf8_encode($data['desperson']);
+		$this->setData($data);
+	}
 }
 
  ?>
